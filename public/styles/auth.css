@@ -1,0 +1,41 @@
+.auth__box {
+  width: 35rem;
+  padding: 0;
+  margin: 0;
+}
+.registration__container {
+  display: flex;
+  justify-content: center;
+}
+.auth__fields {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  padding: 0;
+  margin: 1rem 0 1rem 0;
+}
+.registration__footer {
+  display: flex;
+  border-top: 1px solid #888;
+  justify-content: flex-end;
+  padding: 0.4rem 0 0 0;
+  margin: 0;
+}
+.auth__wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+.auth__box1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  padding: 0;
+  margin: 0;
+}
+.auth__box2 {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  padding: 0;
+  margin: 0;
+}

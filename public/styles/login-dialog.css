@@ -1,0 +1,14 @@
+.modal__login__image{
+    margin: 0; 
+    padding: 0; 
+    height: 1.6rem;
+  }
+  .modal__login__body{
+    margin: 0;
+    padding: 0;
+    width: 400px;
+  }
+  .modal__login__registration{
+    display: flex;
+    justify-content: flex-end;
+  }
