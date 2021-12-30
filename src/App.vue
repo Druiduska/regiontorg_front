@@ -1,47 +1,30 @@
 <template>
-  <div id="nav">
-    <Header msg="Welcome to Your Vue.js App"/>
+  <div class="app__container">
+    <div id="nav" class="app__header">
+      <Header msg="Welcome to Your Vue.js App" />
+    </div>
+    <router-view class="app__body" />
   </div>
-  <router-view/>
 </template>
 
 <script>
-import Header from "./components/Header.vue"
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header
-  }
-}
+    Header,
+  },
+  mounted() {
+    let recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', '/lib/posts.js')
+    document.head.appendChild(recaptchaScript)
+    setTimeout( ()=>{posts_all(process.env.VUE_APP_URL).then((response)=>{
+          this.$store.commit('setPosts', response)})}, 10);
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-button {
-  padding: 0.3rem;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-size: medium;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import "/styles/app.css";
 </style>

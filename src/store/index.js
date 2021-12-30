@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    Posts: [],
     LoginInfo: false,
     isLoginDialogVisible: false,
   },
@@ -11,6 +12,9 @@ export default createStore({
     },
     setLoginDialogVisible(state, isLoginDialogVisible){
       state.isLoginDialogVisible = isLoginDialogVisible
+    },
+    setPosts(state, posts){
+      state.Posts=posts;
     }
   },
   actions: {

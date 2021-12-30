@@ -1,0 +1,10 @@
+.post__menu__container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.post__menu__drop__down{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,23 @@
+.auth__menu{
+    display: flex;
+    flex-direction: row nowrap;
+}
+.auth__btn {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+.auth__btn__image {
+    margin: 0;
+    padding: 0;
+    height: 1.3rem;
+    padding-top: 0.2rem;
+}
+.auth__btn__title {
+    font-size: large;
+    padding: 3px;
+}

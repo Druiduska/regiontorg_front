@@ -4,6 +4,7 @@
     <button @click="getMe">Кто я?</button>
     <button type="button" @click="getLoginInfo">Токен</button>
     <button type="button" @click="refreshToken">Refresh</button>
+    <button type="button" @click="getPosts">Посты</button>
   </div>
 </template>
 
@@ -46,6 +47,12 @@ export default {
     getLoginInfo(){
       console.log(this.$store.state.LoginInfo.body);
     },
+    getPosts(){
+    // this.$store.state.Posts.array.forEach(element => {
+  
+    // });
+      console.log(this.$store.state.Posts[0].title);
+    }
   },
 }
 </script>

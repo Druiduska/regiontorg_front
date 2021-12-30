@@ -1,0 +1,35 @@
+.post__fieldset{
+    margin: 0 0.5rem 0 0.5rem;
+    border-radius: 0.2rem;
+    background-color: lightyellow;
+    text-align: initial;
+}
+.post__title{
+    text-align: initial;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: honeydew;
+    text-decoration: none;
+    font-family: 'Dewi Expanded', sans-serif;
+    font-weight: bold;
+    font-style: oblique;
+}
+.post__header {
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom: 1px solid black;
+    /* border-radius: 3px; */
+    background-color: honeydew;
+
+}
+.post__header__title {
+    text-align: initial;
+    text-decoration: none;
+    font-family: 'Dewi Expanded', sans-serif;
+    font-weight: bold;
+    font-style: oblique;
+    flex: 1 2 auto;
+}
+.post__header__button {
+    flex: 1 1 auto;
+}

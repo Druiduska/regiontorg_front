@@ -6,7 +6,7 @@
           <img class="logo__image" src="images/smart_toy_black_48dp.svg" alt="">
         </div>
         <div class=".header__field__menu">
-          <SimpleMenu :menu_items="[{title: 'About', href: '/'}, {title: 'Home', href: '/home'}, {title: 'Registration', href: '/registration'}]" ></SimpleMenu>
+          <SimpleMenu :menu_items="menuList" ></SimpleMenu>
         </div>
         <div class="header__field2">
         </div>
@@ -32,6 +32,7 @@ export default {
       data () {
       return {
         isLoginVisible: false,
+        menuList: [{title: 'Home', href: '/'}, {title: 'About', href: '/about'}],
       };
     },
   props: {
