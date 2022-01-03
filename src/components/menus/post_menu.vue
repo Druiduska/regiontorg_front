@@ -1,7 +1,7 @@
 <template>
   <div ref="post_menu_container" class="post__menu__container">
       <div class="post__menu__drop__down">
-          <button>Изменить</button>
+          <button @click="on_edit">Изменить</button>
           <button>Удалить</button>
       </div>
   </div>
@@ -13,12 +13,16 @@ export default {
     return {};
   },
   props: {
-    aticle_id: Number,
+    post_id: Number,
     aticle_left: Number,
     aticle_top: Number,
     aticle_width: Number,
   },
-  methods: {},
+  methods: {
+    on_edit(){
+      this.$router.push('/posts/edit/'+this.post_id)
+    },
+  },
   mounted() {
     // debugger;
     let cont = this.$refs["post_menu_container"];

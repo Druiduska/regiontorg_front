@@ -1,35 +1,36 @@
 <template>
-  <div class="element__container">
-    <div class="post__title">
-            <label for="title_input" class="title__label">Заголовок:</label>
-            <input id="title_input" class="title__input" type="text" maxlength="100" :value="post.title"/>
-    </div>
-    <section class="article__space">
-      <div class="article_container">
-        {{ post.article }}
+  <div class="post__edit__element__container">
+    <main class="post__edit__main__container">
+      <div class="post__edit__title">
+        <label for="title_input" class="post__edit__title__label">Заголовок:</label>
+        <input
+          id="title_input"
+          class="post__edit__title__input"
+          type="text"
+          maxlength="100"
+          :value="post.title"
+          ref="title_input"
+        />
       </div>
-    </section>
+      <div class="post__edit__article__space">
+        <textarea 
+        class="post__edit__article" 
+        :value="post.article"
+        ref="post__article"></textarea>
+      </div>
+    </main>
+    <footer class="post__edit__footer">
+        <button class="btn_cancel" @click="on_cancel">Отменить</button>
+        <button class="btn_save">Сохранить</button>
+        <button class="btn_exit" @click="on_exit">Выйти</button>
+    </footer>
   </div>
-
-  <!-- <div>
-    <Post :id="post.id">
-      <template v-slot:title>
-        {{ post.title }}
-      </template>
-      <template v-slot:article>
-        <div class="view__post__article">
-        {{ post.article }}
-        </div>
-      </template>
-    </Post>
-  </div> -->
 </template>
 <script>
-// import Post from "@/components/Post.vue"; 
 export default {
   name: "PostEdit",
   components: {
-    //  Post, 
+    //  Post,
   },
   data() {
     return {
@@ -50,6 +51,13 @@ export default {
     },
   },
   methods: {
+    on_cancel(){
+        this.$refs["post__article"].value=this.post.article;
+        this.$refs["title_input"].value=this.post.title;
+    },
+    on_exit(){
+        this.$router.go(-1);
+    },
     getPost(a_posts) {
       let empty_post = { id: 0, title: "", article: "" };
       if (a_posts.length === 0) {

@@ -23,7 +23,7 @@
     </fieldset>
     <PostMenu
       v-if="is_menu"
-      :aticle_id="id"
+      :post_id="id"
       :aticle_left="aticle_left"
       :aticle_top="aticle_top"
       :aticle_width="aticle_width"
