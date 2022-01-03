@@ -23,12 +23,11 @@
     flex-flow: column nowrap;
     margin: 0 0.5rem 0 0.5rem;
     padding: 0;
-    gap: 1rem;
     text-align: center;
     width: -webkit-fill-available;
     height: 100%;
-    background: #fefef4;
 }
+
 .post__edit__title{
     flex: 0 1 auto;
     display: flex;
@@ -48,6 +47,11 @@
     width: calc(100% - 0.5rem);
     height: 100%;
     overflow: scroll;
+}
+.post__edit__article__labael{
+    text-align: left;
+    margin: 0;
+    padding: 0;
 }
 .post__edit__footer{
     flex: 0 1 auto;    

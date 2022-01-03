@@ -13,7 +13,9 @@
         />
       </div>
       <div class="post__edit__article__space">
+          <label for="post__article" class="post__edit__article__labael">Статья:</label>
         <textarea 
+        id="post__article"
         class="post__edit__article" 
         :value="post.article"
         ref="post__article"></textarea>

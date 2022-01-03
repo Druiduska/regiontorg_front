@@ -1,17 +1,17 @@
 <template>
   <div class="about">
-    <PostEdit :post_id="Number(post_id)" />
+    <PostViewComponent :post_id="Number(post_id)" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import PostEdit from "@/components/post_edit.vue";
+import PostViewComponent from "@/components/post_view.vue";
 
 export default {
   name: "PostView",
   components: {
-    PostEdit,
+    PostViewComponent,
   },
   props: {
     post_id: String,
