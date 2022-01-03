@@ -15,12 +15,23 @@ export default {
   components: {
     Header,
   },
-  mounted() {
+
+  methods:{
+    getAllPost(){
+     fetch(process.env.VUE_APP_URL +'/api/posts/all', { method: 'POST', }).then((response)=>{
+        response.json().then((rslt)=>{
+          this.$store.commit('setPosts', rslt)
+          })
+     });      
+    }
+  },
+  beforeCreate(){
     let recaptchaScript = document.createElement('script')
     recaptchaScript.setAttribute('src', '/lib/posts.js')
     document.head.appendChild(recaptchaScript)
-    setTimeout( ()=>{posts_all(process.env.VUE_APP_URL).then((response)=>{
-          this.$store.commit('setPosts', response)})}, 10);
+  },
+  mounted() {
+    this.getAllPost();
   },
 };
 </script>

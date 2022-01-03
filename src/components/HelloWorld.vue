@@ -45,6 +45,7 @@ export default {
       
     },
     getLoginInfo(){
+      console.log(this.$store.state.LoginInfo);
       console.log(this.$store.state.LoginInfo.body);
     },
     getPosts(){

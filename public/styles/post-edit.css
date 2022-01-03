@@ -1,0 +1,40 @@
+.element__container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.article__space{     
+    flex: 2 1 auto;
+    overflow-y: auto;   
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #fefef4;
+}
+.post__title{
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: start;
+    margin: 0 0.5rem 0 0.5rem;
+    text-align: start;
+}
+.title__label{
+    flex: 1 0 auto;
+    margin: 0 0.4rem 0 0;
+}
+.title__input {
+    flex: 1 2 auto;
+    width: 100%;
+}
+.article_container{
+    width: 100%;
+    height: 100%;
+}

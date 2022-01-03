@@ -1,19 +1,26 @@
 <template>
-  <div>
+  <div class="element__container">
+    <div class="news__controls">
+      <button class="news__add__btn">
+        <img src="images/add_news.svg" class="news__btn__image" />
+        <span class="news__btn__title">Добавить новую запись</span>
+      </button>
+    </div>
     <section class="news__space">
-      <div class="news__controls">
-        <button class="news__add__btn">
-          <img src="images/add_news.svg" class="news__btn__image" />
-          <span class="news__btn__title">Добавить новую запись</span>
-        </button>
+      <div class="posts_container">
+        <Post
+          v-for="(item, index) in $store.state.Posts"
+          :key="index"
+          :id="item.id"
+        >
+          <template v-slot:title>
+            {{ item.title }}
+          </template>
+          <template v-slot:article>
+            {{ item.article }}
+          </template>
+        </Post>
       </div>
-      <Post
-        v-for="(item, index) in $store.state.Posts"
-        :key="index"
-        :id="index"
-        :title="item.title"
-        :article="item.article"
-      />
     </section>
   </div>
 </template>
@@ -26,8 +33,7 @@ export default {
     Post,
   },
   data() {
-    return {
-    };
+    return {};
   },
   props: {
     // msg: String

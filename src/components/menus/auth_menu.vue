@@ -5,7 +5,7 @@
       class="auth__btn" 
       @click="showLoginDialog"
       v-show="Boolean($store.state.LoginInfo)?false:true">
-      <img src="images/menu_login_black.svg" class="auth__btn__image" />
+      <img src="/images/menu_login_black.svg" class="auth__btn__image" />
       <span class="auth__btn__title">Войти</span>
     </button>
     <button
@@ -14,7 +14,7 @@
       @click="go_logout"
       v-show="Boolean($store.state.LoginInfo)"
     >
-      <img src="images/menu_logout_black.svg" class="auth__btn__image" />
+      <img src="/images/menu_logout_black.svg" class="auth__btn__image" />
       <span class="auth__btn__title">Выйти</span>
     </button>
         <button
@@ -22,7 +22,7 @@
       class="auth__btn"
       @click="go_register"
     >
-      <img src="images/person_add_black.svg" class="auth__btn__image" />
+      <img src="/images/person_add_black.svg" class="auth__btn__image" />
       <span class="auth__btn__title">Зарегестрировать</span>
     </button>
   </div>
@@ -43,7 +43,7 @@ export default {
         this.$store.state.LoginInfo.body.token_type,
         this.$store.state.LoginInfo.body.access_token
       ).then(() => {
-        this.$store.commit("setLoginInfo", null);
+        this.$store.commit("setLoginInfo", false);
       });
     },
     go_register(){

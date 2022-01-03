@@ -37,21 +37,5 @@ export default {
 };
 </script>
 <style scoped>
-.menu__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 12px;
-  display: grid;
-  grid-auto-flow: column;
-  column-gap: 8px;
-}
-.menu__item {
-  
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-.menu__item.sel {
-  background: burlywood;
-}
+@import "/styles/simple-menu.css";
 </style>

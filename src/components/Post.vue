@@ -6,14 +6,19 @@
       </legend> -->
       <header class="post__header">
         <div class="post__header__title">
-          {{ title }}
+        <slot name="title">
+        </slot>
         </div>
         <img 
           @mouseover="show_menu($event)" 
-          src="images/more_horiz_black.svg" />
+          src="/images/more_horiz_black.svg" />
       </header>
-      <article ref="post_article">
-        {{ article }}
+      <article 
+        @click="on_article_click"
+        ref="post_article">
+        <slot name="article">
+        </slot>
+        
       </article>
     </fieldset>
     <PostMenu
@@ -49,8 +54,6 @@ export default {
     };
   },
   props: {
-    title: String,
-    article: String,
     id: Number,
   },
   methods: {
@@ -83,6 +86,9 @@ export default {
     mouse_out_list(){
       this.is_menu_list=false
       this.hide_menu();
+    },
+    on_article_click(){
+      this.$router.push('/posts/'+this.id)
     },
   },
 };

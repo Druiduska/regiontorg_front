@@ -47,6 +47,7 @@ export default {
   },
   methods: {
     closeModal() {
+        this.errText=[];
         this.$refs["dlg_login_login"].value=''
         this.$refs["dlg_login_pass"].value=''
         this.$emit('close');
@@ -56,7 +57,7 @@ export default {
         let s_password = this.$refs["dlg_login_pass"].value
 
         login_jwt(process.env.VUE_APP_URL, s_login, s_password).then((response)=>{
-          this.$store.commit('setLoginInfo', response)
+          this.$store.commit('setLoginInfo', false)
           if ( response.status>200 && response.status < 400){
             return;
           }
