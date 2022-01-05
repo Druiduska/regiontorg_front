@@ -9,29 +9,15 @@
 
 <script>
 import Header from "./components/Header.vue";
-
+import postsFetch from "@/mixins/posts_fetch.js";
 export default {
   name: "App",
   components: {
     Header,
   },
-
-  methods:{
-    getAllPost(){
-     fetch(process.env.VUE_APP_URL +'/api/posts/all', { method: 'POST', }).then((response)=>{
-        response.json().then((rslt)=>{
-          this.$store.commit('setPosts', rslt)
-          })
-     });      
-    }
-  },
-  beforeCreate(){
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.setAttribute('src', '/lib/posts.js')
-    document.head.appendChild(recaptchaScript)
-  },
+  mixins: [postsFetch],
   mounted() {
-    this.getAllPost();
+    this.posts_all();
   },
 };
 </script>

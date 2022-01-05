@@ -1,23 +1,31 @@
 <template>
-  <div>
-    <Post :id="post.id">
-      <template v-slot:title>
+  <div class="post__view__element__container">
+    <main class="post__view__main__container">
+      <div class="post__view__title">
+        <label for="title_text" class="post__view__title__label">Заголовок:</label>
+        <div
+          id="title_text"
+          class="post__view__title__text"
+        >
         {{ post.title }}
-      </template>
-      <template v-slot:article>
-        <div class="view__post__article">
-        {{ post.article }}
         </div>
-      </template>
-    </Post>
+      </div>
+      <article class="post__view__article__space">
+          <label for="post__article" class="post__view__article__labael">Статья:</label>
+        <pre 
+        id="post__article"
+        class="post__view__article">{{ post.article }}</pre>
+      </article>
+    </main>
+    <footer class="post__view__footer">
+      <button class="btn_exit" @click="on_exit">Выйти</button>
+    </footer>
   </div>
 </template>
 <script>
-import Post from "@/components/Post.vue";
 export default {
-  name: "ViewPost",
+  name: "PostEdit",
   components: {
-    Post,
   },
   data() {
     return {
@@ -38,6 +46,13 @@ export default {
     },
   },
   methods: {
+    on_cancel(){
+        this.$refs["post__article"].value=this.post.article;
+        this.$refs["title_input"].value=this.post.title;
+    },
+    on_exit(){
+        this.$router.go(-1);
+    },
     getPost(a_posts) {
       let empty_post = { id: 0, title: "", article: "" };
       if (a_posts.length === 0) {
@@ -58,5 +73,5 @@ export default {
 };
 </script>
 <style scoped>
-@import "/styles/view_post.css";
+@import "/styles/post-view.css";
 </style>

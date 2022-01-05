@@ -1,0 +1,17 @@
+.modal__delete__image {
+  margin: 0;
+  padding: 0;
+  height: 1.6rem;
+}
+.modal__delete__body {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+.modal__body__image {
+  height: 48px;
+}
+.modal__body__label {
+  margin: 14px;
+}

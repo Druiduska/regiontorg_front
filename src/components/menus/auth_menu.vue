@@ -11,7 +11,7 @@
     <button
       type="button"
       class="auth__btn"
-      @click="go_logout"
+      @click="logoutJwt"
       v-show="Boolean($store.state.LoginInfo)"
     >
       <img src="/images/menu_logout_black.svg" class="auth__btn__image" />
@@ -36,15 +36,6 @@ export default {
     },
     closeLoginDialog() {
       this.$store.commit("setLoginDialogVisible", false);
-    },
-    go_logout() {
-      logout__jwt(
-        process.env.VUE_APP_URL,
-        this.$store.state.LoginInfo.body.token_type,
-        this.$store.state.LoginInfo.body.access_token
-      ).then(() => {
-        this.$store.commit("setLoginInfo", false);
-      });
     },
     go_register(){
       this.$router.push('/registration')

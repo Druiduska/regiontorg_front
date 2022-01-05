@@ -101,7 +101,7 @@
     created: function() {
       window.addEventListener('keydown',this.on_escape_press);
     },
-    destroyed: function() {
+    unmounted: function() {
       window.removeEventListener('keydown', this.on_escape_press);
     },
   };

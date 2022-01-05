@@ -17,7 +17,7 @@
             <span>Пароль:</span>
             <input type="password" ref="dlg_login_pass" value='123' />
           </label>
-          <div v-for="(item, index) in errText" :key="index"> {{ item }} </div>
+          <div v-for="(item, index) in errAuthText" :key="index"> {{ item }} </div>
           <div class="modal__login__registration">
             <router-link @click="closeModal" to="/registration">
               Зарегистрироваться</router-link>
@@ -32,7 +32,6 @@
   </div>
 </template>
 <script>
-
 import Modal from "@/components/dialogs/modal.vue";
 
 export default {
@@ -40,47 +39,14 @@ export default {
   components: {
     Modal,
   },
-  data() {
-    return {
-      errText: [],
-    }
-  },
   methods: {
     closeModal() {
-        this.errText=[];
-        this.$refs["dlg_login_login"].value=''
-        this.$refs["dlg_login_pass"].value=''
+        this.errAuthText=[];
+        this.$refs["dlg_login_login"].value='';
+        this.$refs["dlg_login_pass"].value='';
         this.$emit('close');
     },
-    loginJwt(){
-        let s_login = this.$refs["dlg_login_login"].value
-        let s_password = this.$refs["dlg_login_pass"].value
-
-        login_jwt(process.env.VUE_APP_URL, s_login, s_password).then((response)=>{
-          this.$store.commit('setLoginInfo', false)
-          if ( response.status>200 && response.status < 400){
-            return;
-          }
-          switch (response.status){
-            case 200:
-              this.$store.commit('setLoginInfo', response)
-              this.errText=[];
-              this.closeModal();
-              break;
-            case 401:
-              this.errText=["Неверный логин или пароль"];
-              break;
-            default:
-              this.errText=["Ошибка системы авторизации.", "Обратитесь к системному администратору."];
-          }
-        })
-    },
   },
-  mounted() {
-      let recaptchaScript = document.createElement('script')
-      recaptchaScript.setAttribute('src', '/lib/auth.js')
-      document.head.appendChild(recaptchaScript)
-    },
 };
 </script>
 <style scoped>

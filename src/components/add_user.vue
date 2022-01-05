@@ -38,20 +38,6 @@ export default {
       on_cancel (){
           this.$router.go(-1)
       },
-      registerJwt(){
-        let s_username = this.$refs["register_username"].value
-        let s_email = this.$refs["register_email"].value
-        let s_login = this.$refs["register_login"].value
-        let s_password = this.$refs["register_password"].value
-        register_jwt(process.env.VUE_APP_URL, 
-                    s_username, 
-                    s_email,  
-                    s_login, 
-                    s_password)
-          .then((response)=>{
-            console.log(response)
-          })
-      },
   },
 };
 </script>

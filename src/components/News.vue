@@ -1,7 +1,10 @@
 <template>
   <div class="element__container">
     <div class="news__controls">
-      <button class="news__add__btn">
+      <button 
+      v-show="Boolean($store.state.LoginInfo)"
+      class="news__add__btn" 
+      @click="on_post_add">
         <img src="images/add_news.svg" class="news__btn__image" />
         <span class="news__btn__title">Добавить новую запись</span>
       </button>
@@ -17,7 +20,8 @@
             {{ item.title }}
           </template>
           <template v-slot:article>
-            {{ item.article }}
+            {{ item.article.substring(0, 255) }}
+            <b>{{ item.article.length > 255 ? '...': '' }}</b>
           </template>
         </Post>
       </div>
@@ -35,10 +39,11 @@ export default {
   data() {
     return {};
   },
-  props: {
-    // msg: String
+  methods: {
+    on_post_add(){
+      this.$router.push('/posts/add')
+    },
   },
-  methods: {},
 };
 </script>
 

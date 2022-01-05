@@ -49,7 +49,6 @@ export default {
     AuthMenu,
     LoginDialog,
   },
-  //document.location.pathname
   methods: {
     closeLoginDialog() {
       this.$store.commit("setLoginDialogVisible", false);
